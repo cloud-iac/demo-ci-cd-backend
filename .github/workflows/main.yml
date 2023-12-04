@@ -7,21 +7,11 @@ on:
 
 jobs:
   deploy:
-    name: mvn-build-docker-build-push
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        cache: maven
-    
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
@@ -50,4 +40,4 @@ jobs:
   
     # - name: Start Auto Scaling Instance Refresh
     #   run: |
-    #     aws autoscaling start-instance-refresh --auto-scaling-group-name back_asg
+    #     aws autoscaling start-instance-refresh --auto-scaling-group-name front_asg
