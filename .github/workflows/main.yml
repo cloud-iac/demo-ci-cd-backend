@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  mvn-build:
+  deploy:
     name: mvn-build
     runs-on: ubuntu-latest
 
@@ -18,13 +18,10 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
+    
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
