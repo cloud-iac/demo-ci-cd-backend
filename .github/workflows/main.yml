@@ -40,4 +40,4 @@ jobs:
   
     # - name: Start Auto Scaling Instance Refresh
     #   run: |
-    #     aws autoscaling start-instance-refresh --auto-scaling-group-name front_asg
+    #     aws autoscaling start-instance-refresh --auto-scaling-group-name back_asg
