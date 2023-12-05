@@ -15,7 +15,9 @@ app.use(morgan('tiny'));
 
 app.use('/tweets', tweetsRouter);
 app.use('/auth', authRouter);
-
+app.use('/healthz', (req, res, next) => {
+  res.sendStatus(200);
+});
 app.use((req, res, next) => {
   res.sendStatus(404);
 });
