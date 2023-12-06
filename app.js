@@ -15,7 +15,6 @@ app.use(cors({
   credentials: true
 }));
 app.use(morgan('tiny'));
-app.options('*', cors()); // 모든 라우트에 대한 OPTIONS 요청에 대한 응답 설정
 
 app.use('/tweets', tweetsRouter);
 app.use('/auth', authRouter);
@@ -30,4 +29,4 @@ app.use((error, req, res, next) => {
   console.error(error);
   res.sendStatus(500);
 });
-app.listen(8080,"10.0.0.0/16");
+app.listen(8080);
