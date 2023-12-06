@@ -15,6 +15,7 @@ app.use(cors({
   credentials: true
 }));
 app.use(morgan('tiny'));
+app.options('*', cors()); // 모든 라우트에 대한 OPTIONS 요청에 대한 응답 설정
 
 app.use('/tweets', tweetsRouter);
 app.use('/auth', authRouter);
