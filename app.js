@@ -9,7 +9,7 @@ import healthzRouter from "./router/healthz.js";
 const app = express();
 
 const corsOptions = {
-  origin: '*', // Specify the allowed origin
+  origin: 'http://front-tier-alb-1611244642.ap-northeast-2.elb.amazonaws.com', // Specify the allowed origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Specify the allowed HTTP methods
   credentials: true, // Include credentials (cookies, HTTP authentication) in the CORS request
   optionsSuccessStatus: 204, // Respond with a 204 status code for successful preflight requests
