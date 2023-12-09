@@ -14,11 +14,8 @@ const corsOptions = {
   credentials: true, // Include credentials (cookies, HTTP authentication) in the CORS request
   optionsSuccessStatus: 204, // Respond with a 204 status code for successful preflight requests
 };
-
-
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
-app.options("*", cors());
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("tiny"));
