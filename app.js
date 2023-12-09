@@ -14,6 +14,7 @@ app.use(cors({
   credentials: true,
   optionsSuccessStatus: 204,
 }));
+app.options('*', cors());
 app.use(express.json());
 app.use(helmet());
 app.use(morgan('tiny'));
