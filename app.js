@@ -1,27 +1,31 @@
-import express from 'express';
-import 'express-async-errors';
-import cors from 'cors';
-import morgan from 'morgan';
-import helmet from 'helmet';
-import tweetsRouter from './router/tweets.js';
-import authRouter from './router/auth.js';
-import healthzRouter from './router/healthz.js'
+import express from "express";
+import "express-async-errors";
+import cors from "cors";
+import morgan from "morgan";
+import helmet from "helmet";
+import tweetsRouter from "./router/tweets.js";
+import authRouter from "./router/auth.js";
+import healthzRouter from "./router/healthz.js";
 const app = express();
 
-app.use(cors({
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204,
-}));
-app.options('*', cors());
+const corsOptions = {
+  origin: '*', // Specify the allowed origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Specify the allowed HTTP methods
+  credentials: true, // Include credentials (cookies, HTTP authentication) in the CORS request
+  optionsSuccessStatus: 204, // Respond with a 204 status code for successful preflight requests
+};
+
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+app.options("*", cors());
 app.use(express.json());
 app.use(helmet());
-app.use(morgan('tiny'));
+app.use(morgan("tiny"));
 
-app.use('/tweets', tweetsRouter);
-app.use('/auth', authRouter);
-app.use('/healthz', healthzRouter);
+app.use("/tweets", tweetsRouter);
+app.use("/auth", authRouter);
+app.use("/healthz", healthzRouter);
 app.use((req, res, next) => {
   res.sendStatus(404);
 });
