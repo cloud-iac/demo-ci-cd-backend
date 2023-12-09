@@ -8,14 +8,14 @@ import authRouter from './router/auth.js';
 import healthzRouter from './router/healthz.js'
 const app = express();
 
-app.use(express.json());
-app.use(helmet());
 app.use(cors({
   origin: '*',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
 }));
+app.use(express.json());
+app.use(helmet());
 app.use(morgan('tiny'));
 
 app.use('/tweets', tweetsRouter);
