@@ -7,7 +7,7 @@ import tweetsRouter from "./router/tweets.js";
 import authRouter from "./router/auth.js";
 import healthzRouter from "./router/healthz.js";
 const app = express();
-const bodyParser = require('body-parser');
+import bodyParser from "body-parser";
 
 app.use(cors());
 // app.use(express.json());
