@@ -8,17 +8,10 @@ import authRouter from "./router/auth.js";
 import healthzRouter from "./router/healthz.js";
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, *');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Content-Type', 'application/json');
-  next();
-});
+app.use(cors());
 app.options('*', cors());
 app.use(express.json());
-// app.use(helmet());
+app.use(helmet());
 app.use(morgan("combined"));
 
 app.use("/tweets", tweetsRouter);
