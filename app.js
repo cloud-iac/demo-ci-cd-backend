@@ -7,10 +7,11 @@ import tweetsRouter from "./router/tweets.js";
 import authRouter from "./router/auth.js";
 import healthzRouter from "./router/healthz.js";
 const app = express();
+const bodyParser = require('body-parser');
 
 app.use(cors());
-app.options('*', cors());
-app.use(express.json());
+// app.use(express.json());
+app.use(bodyParser.json());
 app.use(helmet());
 app.use(morgan("combined"));
 
