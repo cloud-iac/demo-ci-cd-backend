@@ -18,8 +18,8 @@ app.use((req, res, next) => {
 });
 app.options('*', cors());
 app.use(express.json());
-app.use(helmet());
-app.use(morgan("tiny"));
+// app.use(helmet());
+// app.use(morgan("tiny"));
 
 app.use("/tweets", tweetsRouter);
 app.use("/auth", authRouter);
