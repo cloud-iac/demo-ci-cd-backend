@@ -25,6 +25,6 @@ export const config = {
   },
   port: parseInt(required('PORT')),
   cors: {
-    allowedOrigin: required('CORS_ALLOW_ORIGIN',"*"),
+    allowedOrigin: required('CORS_ALLOW_ORIGIN',"*, *"),
   }
 };
